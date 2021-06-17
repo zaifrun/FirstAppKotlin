@@ -5,19 +5,22 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.content_main.*
+import org.pondar.firstappkotlin.databinding.MainActivityBinding
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var binding : MainActivityBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = MainActivityBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
         setSupportActionBar(findViewById(R.id.toolbar))
 
-        fab.setOnClickListener {
+        binding.fab.setOnClickListener {
             Snackbar.make(it, "Hello class from a snackbar", Snackbar.LENGTH_LONG).show()
-            welcomeTextView.text = resources.getString(R.string.thank_you)
+            binding.includedContent.welcomeTextView.text = resources.getString(R.string.thank_you)
         }
 
     }
