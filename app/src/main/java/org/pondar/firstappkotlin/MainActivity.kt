@@ -19,6 +19,11 @@ class MainActivity : AppCompatActivity() {
             will be the same as the name of the XML file with "Binding" appended.
             So the xml file is name main_activity.xml, so the
             binding class will be named MainActivityBinding (the _ is stripped)
+            ViewBinding is enabled in the build.gralde (app module file) with
+            this command (as you can see in the file):
+            buildFeatures {
+                viewBinding true
+                }
          */
         binding = MainActivityBinding.inflate(layoutInflater)
         val view = binding.root  //This gets the root node.
